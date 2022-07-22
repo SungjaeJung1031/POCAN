@@ -72,8 +72,8 @@ class MainWindow(QMainWindow):
 
         # SET CUSTOM THEME
         # ///////////////////////////////////////////////////////////////
-        useCustomTheme = False
-        themeFile = "themes/pocan_light.qss"
+        useCustomTheme = True
+        themeFile = "resource/themes/pocan_dark.qss"
 
         # SET THEME AND HACKS
         if useCustomTheme:

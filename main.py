@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
 
         # TOGGLE MENU
         # ///////////////////////////////////////////////////////////////
-        widgets.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
+        widgets.ui_left_menu.toggleButton.clicked.connect(lambda: UIFunctions.toggleMenu(self, True))
 
         # SET UI DEFINITIONS
         # ///////////////////////////////////////////////////////////////
@@ -50,15 +50,16 @@ class MainWindow(QMainWindow):
         # ///////////////////////////////////////////////////////////////
 
         # LEFT MENUS
-        widgets.btn_home.clicked.connect(self.buttonClick)
-        widgets.btn_widgets.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.ui_left_menu.btn_simulation.clicked.connect(self.buttonClick)
+        widgets.ui_left_menu.btn_label.clicked.connect(self.buttonClick)
+        widgets.ui_left_menu.btn_labeled_data.clicked.connect(self.buttonClick)
+        widgets.ui_left_menu.btn_new.clicked.connect(self.buttonClick)
+        widgets.ui_left_menu.btn_save.clicked.connect(self.buttonClick)
 
         # EXTRA LEFT BOX
         def openCloseLeftBox():
-            UIFunctions.toggleLeftBox(self, True)
-        widgets.toggleLeftBox.clicked.connect(openCloseLeftBox)
+            UIFunctions.toggleSettingBox(self, True)
+        widgets.ui_left_menu.btn_setting.clicked.connect(openCloseLeftBox)
         widgets.extraCloseColumnBtn.clicked.connect(openCloseLeftBox)
 
         # EXTRA RIGHT BOX
@@ -86,7 +87,7 @@ class MainWindow(QMainWindow):
         # SET HOME PAGE AND SELECT MENU
         # ///////////////////////////////////////////////////////////////
         widgets.stackedWidget.setCurrentWidget(widgets.home)
-        widgets.btn_home.setStyleSheet(UIFunctions.selectMenu(widgets.btn_home.styleSheet()))
+        widgets.ui_left_menu.btn_label.setStyleSheet(UIFunctions.selectMenu(widgets.ui_left_menu.btn_label.styleSheet()))
 
 
     # BUTTONS CLICK
@@ -97,14 +98,20 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
 
-        # SHOW HOME PAGE
-        if btnName == "btn_home":
+        # SHOW SIMULATION
+        if btnName == "btn_simluation":
+            widgets.stackedWidget.setCurrentWidget(widgets.btn_simulation)
+            UIFunctions.resetStyle(self, btnName)
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
+
+        # SHOW DATA LABELING PAGE
+        if btnName == "btn_label":
             widgets.stackedWidget.setCurrentWidget(widgets.home)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
 
-        # SHOW WIDGETS PAGE
-        if btnName == "btn_widgets":
+        # SHOW LABELED DATA PAGE
+        if btnName == "btn_labeled_data":
             widgets.stackedWidget.setCurrentWidget(widgets.widgets)
             UIFunctions.resetStyle(self, btnName)
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet()))
@@ -142,6 +149,6 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon("images/icons/icons8-3d-model-96.png"))
+    app.setWindowIcon(QIcon("images/icons/cubes-gradient-96.png"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

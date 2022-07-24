@@ -53,18 +53,18 @@ class UIFunctions(MainWindow):
     def toggleMenu(self, enable):
         if enable:
             # GET WIDTH
-            width = self.ui.leftMenuBg.width()
+            width = self.ui.ui_left_menu.leftMenuBg.width()
             maxExtend = Settings.MENU_WIDTH
-            standard = 60
+            standard = 32
 
             # SET MAX WIDTH
-            if width == 60:
+            if width == 32:
                 widthExtended = maxExtend
             else:
                 widthExtended = standard
 
             # ANIMATION
-            self.animation = QPropertyAnimation(self.ui.leftMenuBg, b"minimumWidth")
+            self.animation = QPropertyAnimation(self.ui.ui_left_menu.leftMenuBg, b"minimumWidth")
             self.animation.setDuration(Settings.TIME_ANIMATION)
             self.animation.setStartValue(width)
             self.animation.setEndValue(widthExtended)
@@ -73,30 +73,30 @@ class UIFunctions(MainWindow):
 
     # TOGGLE LEFT BOX
     # ///////////////////////////////////////////////////////////////
-    def toggleLeftBox(self, enable):
+    def toggleSettingBox(self, enable):
         if enable:
             # GET WIDTH
             width = self.ui.extraLeftBox.width()
             widthRightBox = self.ui.extraRightBox.width()
-            maxExtend = Settings.LEFT_BOX_WIDTH
-            color = Settings.BTN_LEFT_BOX_COLOR
+            maxExtend = Settings.SETTING_BOX_WIDTH
+            color = Settings.BTN_SETTING_BOX_COLOR
             standard = 0
 
             # GET BTN STYLE
-            style = self.ui.toggleLeftBox.styleSheet()
+            style = self.ui.ui_left_menu.btn_setting.styleSheet()
 
             # SET MAX WIDTH
             if width == 0:
                 widthExtended = maxExtend
                 # SELECT BTN
-                self.ui.toggleLeftBox.setStyleSheet(style + color)
+                self.ui.ui_left_menu.btn_setting.setStyleSheet(style + color)
                 if widthRightBox != 0:
                     style = self.ui.settingsTopBtn.styleSheet()
                     self.ui.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
-                self.ui.toggleLeftBox.setStyleSheet(style.replace(color, ''))
+                self.ui.ui_left_menu.btn_setting.setStyleSheet(style.replace(color, ''))
                 
         UIFunctions.start_box_animation(self, width, widthRightBox, "left")
 
@@ -178,13 +178,13 @@ class UIFunctions(MainWindow):
 
     # START SELECTION
     def selectStandardMenu(self, widget):
-        for w in self.ui.topMenu.findChildren(QPushButton):
+        for w in self.ui.ui_left_menu.topMenu.findChildren(QPushButton):
             if w.objectName() == widget:
                 w.setStyleSheet(UIFunctions.selectMenu(w.styleSheet()))
 
     # RESET SELECTION
     def resetStyle(self, widget):
-        for w in self.ui.topMenu.findChildren(QPushButton):
+        for w in self.ui.ui_left_menu.topMenu.findChildren(QPushButton):
             if w.objectName() != widget:
                 w.setStyleSheet(UIFunctions.deselectMenu(w.styleSheet()))
 

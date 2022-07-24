@@ -11,6 +11,9 @@
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import * 
+
+from modules.ui_left_menu import *
+
 from . resources_rc import *
 
 class QSSLoader:
@@ -40,196 +43,233 @@ class Ui_MainWindow(object):
         self.appMargins.setSpacing(0)
         self.appMargins.setObjectName(u"appMargins")
         self.appMargins.setContentsMargins(10, 10, 10, 10)
+
+        # most outside frame
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setStyleSheet(u"")
         self.bgApp.setFrameShape(QFrame.NoFrame)
         self.bgApp.setFrameShadow(QFrame.Raised)
+
         self.appLayout = QHBoxLayout(self.bgApp)
         self.appLayout.setSpacing(0)
         self.appLayout.setObjectName(u"appLayout")
         self.appLayout.setContentsMargins(0, 0, 0, 0)
-        self.leftMenuBg = QFrame(self.bgApp)
-        self.leftMenuBg.setObjectName(u"leftMenuBg")
-        self.leftMenuBg.setMinimumSize(QSize(60, 0))
-        self.leftMenuBg.setMaximumSize(QSize(60, 16777215))
-        self.leftMenuBg.setFrameShape(QFrame.NoFrame)
-        self.leftMenuBg.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.leftMenuBg)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.topLogoInfo = QFrame(self.leftMenuBg)
-        self.topLogoInfo.setObjectName(u"topLogoInfo")
-        self.topLogoInfo.setMinimumSize(QSize(0, 50))
-        self.topLogoInfo.setMaximumSize(QSize(16777215, 50))
-        self.topLogoInfo.setFrameShape(QFrame.NoFrame)
-        self.topLogoInfo.setFrameShadow(QFrame.Raised)
-        self.topLogo = QFrame(self.topLogoInfo)
-        self.topLogo.setObjectName(u"topLogo")
-        self.topLogo.setGeometry(QRect(10, 5, 42, 42))
-        self.topLogo.setMinimumSize(QSize(42, 42))
-        self.topLogo.setMaximumSize(QSize(42, 42))
-        self.topLogo.setFrameShape(QFrame.NoFrame)
-        self.topLogo.setFrameShadow(QFrame.Raised)
-        self.titleLeftApp = QLabel(self.topLogoInfo)
-        self.titleLeftApp.setObjectName(u"titleLeftApp")
-        self.titleLeftApp.setGeometry(QRect(70, 8, 160, 20))
-        font1 = QFont()
-        font1.setFamilies([u"Segoe UI Semibold"])
-        font1.setPointSize(12)
-        font1.setBold(False)
-        font1.setItalic(False)
-        self.titleLeftApp.setFont(font1)
-        self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.titleLeftDescription = QLabel(self.topLogoInfo)
-        self.titleLeftDescription.setObjectName(u"titleLeftDescription")
-        self.titleLeftDescription.setGeometry(QRect(70, 27, 160, 16))
-        self.titleLeftDescription.setMaximumSize(QSize(16777215, 16))
-        font2 = QFont()
-        font2.setFamilies([u"Segoe UI"])
-        font2.setPointSize(8)
-        font2.setBold(False)
-        font2.setItalic(False)
-        self.titleLeftDescription.setFont(font2)
-        self.titleLeftDescription.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
-        self.verticalLayout_3.addWidget(self.topLogoInfo)
+        # self.ui_left_menu.leftMenuBg = QFrame(self.bgApp)
+        # self.ui_left_menu.leftMenuBg.setObjectName(u"leftMenuBg")
+        # self.ui_left_menu.leftMenuBg.setMinimumSize(QSize(32, 0))
+        # self.ui_left_menu.leftMenuBg.setMaximumSize(QSize(32, 16777215))
+        # self.ui_left_menu.leftMenuBg.setFrameShape(QFrame.NoFrame)
+        # self.ui_left_menu.leftMenuBg.setFrameShadow(QFrame.Raised)
+        self.ui_left_menu = Ui_LeftMenu(self.bgApp, font)
 
-        self.leftMenuFrame = QFrame(self.leftMenuBg)
-        self.leftMenuFrame.setObjectName(u"leftMenuFrame")
-        self.leftMenuFrame.setFrameShape(QFrame.NoFrame)
-        self.leftMenuFrame.setFrameShadow(QFrame.Raised)
-        self.verticalMenuLayout = QVBoxLayout(self.leftMenuFrame)
-        self.verticalMenuLayout.setSpacing(0)
-        self.verticalMenuLayout.setObjectName(u"verticalMenuLayout")
-        self.verticalMenuLayout.setContentsMargins(0, 0, 0, 0)
-        self.toggleBox = QFrame(self.leftMenuFrame)
-        self.toggleBox.setObjectName(u"toggleBox")
-        self.toggleBox.setMaximumSize(QSize(16777215, 45))
-        self.toggleBox.setFrameShape(QFrame.NoFrame)
-        self.toggleBox.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_4 = QVBoxLayout(self.toggleBox)
-        self.verticalLayout_4.setSpacing(0)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.toggleButton = QPushButton(self.toggleBox)
-        self.toggleButton.setObjectName(u"toggleButton")
+        # self.ui_left_menu.verticalLayout_3 = QVBoxLayout(self.ui_left_menu.leftMenuBg)
+        # self.ui_left_menu.verticalLayout_3.setSpacing(0)
+        # self.ui_left_menu.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        # self.ui_left_menu.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        
+        # self.ui_left_menu.topLogoInfo = QFrame(self.ui_left_menu.leftMenuBg)
+        # self.ui_left_menu.topLogoInfo.setObjectName(u"topLogoInfo")
+        # self.ui_left_menu.topLogoInfo.setMinimumSize(QSize(0, 32))
+        # self.ui_left_menu.topLogoInfo.setMaximumSize(QSize(16777215, 32))
+        # self.ui_left_menu.topLogoInfo.setFrameShape(QFrame.NoFrame)
+        # self.ui_left_menu.topLogoInfo.setFrameShadow(QFrame.Raised)
+
+        # self.topLogo = QFrame(self.ui_left_menu.topLogoInfo)
+        # self.topLogo.setObjectName(u"topLogo")
+        # self.topLogo.setGeometry(QRect(0, 0, 32, 32))
+        # self.topLogo.setMinimumSize(QSize(32, 32))
+        # self.topLogo.setMaximumSize(QSize(32, 32))
+        # self.topLogo.setFrameShape(QFrame.NoFrame)
+        # self.topLogo.setFrameShadow(QFrame.Raised)
+
+        # self.titleLeftApp = QLabel(self.ui_left_menu.topLogoInfo)
+        # self.titleLeftApp.setObjectName(u"titleLeftApp")
+        # self.titleLeftApp.setGeometry(QRect(40, 8, 160, 20))
+        # font1 = QFont()
+        # font1.setFamilies([u"Segoe UI Semibold"])
+        # font1.setPointSize(12)
+        # font1.setBold(False)
+        # font1.setItalic(False)
+        # self.titleLeftApp.setFont(font1)
+        # self.titleLeftApp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        # self.ui_left_menu.verticalLayout_3.addWidget(self.ui_left_menu.topLogoInfo)
+
+        # # left menu
+        # self.leftMenuFrame = QFrame(self.ui_left_menu.leftMenuBg)
+        # self.leftMenuFrame.setObjectName(u"leftMenuFrame")
+        # self.leftMenuFrame.setFrameShape(QFrame.NoFrame)
+        # self.leftMenuFrame.setFrameShadow(QFrame.Raised)
+
+        # # most outside vertical box layout for left menu
+        # self.verticalMenuLayout = QVBoxLayout(self.leftMenuFrame)
+        # self.verticalMenuLayout.setSpacing(0)
+        # self.verticalMenuLayout.setObjectName(u"verticalMenuLayout")
+        # self.verticalMenuLayout.setContentsMargins(0, 0, 0, 0)
+
+        # ### >>> toggle
+        # # toggle frame 
+        # self.toggleBox = QFrame(self.leftMenuFrame)
+        # self.toggleBox.setObjectName(u"toggleBox")
+        # self.toggleBox.setMaximumSize(QSize(16777215, 32))
+        # self.toggleBox.setFrameShape(QFrame.NoFrame)
+        # self.toggleBox.setFrameShadow(QFrame.Raised)
+
+        # # vertical layout (toggle)
+        # self.verticalLayout_4 = QVBoxLayout(self.toggleBox)
+        # self.verticalLayout_4.setSpacing(0)
+        # self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        # self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+
+        # # menu button (burger menu)
+        # self.toggleButton = QPushButton(self.toggleBox)
+        # self.toggleButton.setObjectName(u"toggleButton")
         sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.toggleButton.sizePolicy().hasHeightForWidth())
-        self.toggleButton.setSizePolicy(sizePolicy)
-        self.toggleButton.setMinimumSize(QSize(0, 45))
-        self.toggleButton.setFont(font)
-        self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.toggleButton.setLayoutDirection(Qt.LeftToRight)
-        self.toggleButton.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_menu.png);")
+        # sizePolicy.setHeightForWidth(self.toggleButton.sizePolicy().hasHeightForWidth())
+        # self.toggleButton.setSizePolicy(sizePolicy)
+        # self.toggleButton.setMinimumSize(QSize(0, 32))
+        # self.toggleButton.setFont(font)
+        # self.toggleButton.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.toggleButton.setLayoutDirection(Qt.LeftToRight)
+        # self.toggleButton.setStyleSheet(u"background-image: url(resource/icons/menu-16.png);")
 
-        self.verticalLayout_4.addWidget(self.toggleButton)
+        # self.verticalLayout_4.addWidget(self.toggleButton)
+        # ### <<< toggle
+
+        # self.verticalMenuLayout.addWidget(self.toggleBox)
+
+        # ### >>> left menu (top)
+        # # left menu (top) frame
+        # self.topMenu = QFrame(self.leftMenuFrame)
+        # self.topMenu.setObjectName(u"topMenu")
+        # self.topMenu.setFrameShape(QFrame.NoFrame)
+        # self.topMenu.setFrameShadow(QFrame.Raised)
+
+        # # vertical layout (left menu (top))
+        # self.verticalLayout_8 = QVBoxLayout(self.topMenu)
+        # self.verticalLayout_8.setSpacing(0)
+        # self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        # self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+
+        # # button 1
+        # self.btn_simulation = QPushButton(self.topMenu)
+        # self.btn_simulation.setObjectName(u"btn_simulation")
+        # sizePolicy.setHeightForWidth(self.btn_simulation.sizePolicy().hasHeightForWidth())
+        # self.btn_simulation.setSizePolicy(sizePolicy)
+        # self.btn_simulation.setMinimumSize(QSize(0, 32))
+        # self.btn_simulation.setFont(font)
+        # self.btn_simulation.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_simulation.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_simulation.setStyleSheet(u"background-image: url(resource/icons/vehicle-16.png);")
+
+        # self.verticalLayout_8.addWidget(self.btn_simulation)
+
+        # # button 2
+        # self.btn_label = QPushButton(self.topMenu)
+        # self.btn_label.setObjectName(u"btn_label")
+        # sizePolicy.setHeightForWidth(self.btn_label.sizePolicy().hasHeightForWidth())
+        # self.btn_label.setSizePolicy(sizePolicy)
+        # self.btn_label.setMinimumSize(QSize(0, 32))
+        # self.btn_label.setFont(font)
+        # self.btn_label.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_label.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_label.setStyleSheet(u"background-image: url(resource/icons/tag-16.png);")
+
+        # self.verticalLayout_8.addWidget(self.btn_label)
+
+        # # button 2
+        # self.btn_labeled_data = QPushButton(self.topMenu)
+        # self.btn_labeled_data.setObjectName(u"btn_labeled_data")
+        # sizePolicy.setHeightForWidth(self.btn_labeled_data.sizePolicy().hasHeightForWidth())
+        # self.btn_labeled_data.setSizePolicy(sizePolicy)
+        # self.btn_labeled_data.setMinimumSize(QSize(0, 32))
+        # self.btn_labeled_data.setFont(font)
+        # self.btn_labeled_data.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_labeled_data.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_labeled_data.setStyleSheet(u"background-image: url(resource/icons/edit-property-16.png);")
+
+        # self.verticalLayout_8.addWidget(self.btn_labeled_data)
+
+        # # button 3
+        # self.btn_new = QPushButton(self.topMenu)
+        # self.btn_new.setObjectName(u"btn_new")
+        # sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
+        # self.btn_new.setSizePolicy(sizePolicy)
+        # self.btn_new.setMinimumSize(QSize(0, 32))
+        # self.btn_new.setFont(font)
+        # self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_new.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_new.setStyleSheet(u"background-image: url(resource/icons/cil-file.png);")
+
+        # self.verticalLayout_8.addWidget(self.btn_new)
+
+        # # button 4
+        # self.btn_save = QPushButton(self.topMenu)
+        # self.btn_save.setObjectName(u"btn_save")
+        # sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
+        # self.btn_save.setSizePolicy(sizePolicy)
+        # self.btn_save.setMinimumSize(QSize(0, 32))
+        # self.btn_save.setFont(font)
+        # self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_save.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_save.setStyleSheet(u"background-image: url(resource/icons/cil-save.png)")
+
+        # self.verticalLayout_8.addWidget(self.btn_save)
+
+        # # button 5
+        # self.btn_exit = QPushButton(self.topMenu)
+        # self.btn_exit.setObjectName(u"btn_exit")
+        # sizePolicy.setHeightForWidth(self.btn_exit.sizePolicy().hasHeightForWidth())
+        # self.btn_exit.setSizePolicy(sizePolicy)
+        # self.btn_exit.setMinimumSize(QSize(0, 32))
+        # self.btn_exit.setFont(font)
+        # self.btn_exit.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.btn_exit.setLayoutDirection(Qt.LeftToRight)
+        # self.btn_exit.setStyleSheet(u"background-image: url(resource/icons/cil-x.png);")
+
+        # self.verticalLayout_8.addWidget(self.btn_exit)
+
+        # self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
+        # ### <<< left menu (top)
+
+        # ### >>> left menu (bottom)
+        # # left menu (bottom) frame
+        # self.bottomMenu = QFrame(self.leftMenuFrame)
+        # self.bottomMenu.setObjectName(u"bottomMenu")
+        # self.bottomMenu.setFrameShape(QFrame.NoFrame)
+        # self.bottomMenu.setFrameShadow(QFrame.Raised)
+
+        # # vertical layout (left menu (top))
+        # self.verticalLayout_9 = QVBoxLayout(self.bottomMenu)
+        # self.verticalLayout_9.setSpacing(0)
+        # self.verticalLayout_9.setObjectName(u"verticalLayout_9")
+        # self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
+
+        # # button setting
+        # self.toggleLeftBox = QPushButton(self.bottomMenu)
+        # self.toggleLeftBox.setObjectName(u"toggleLeftBox")
+        # sizePolicy.setHeightForWidth(self.toggleLeftBox.sizePolicy().hasHeightForWidth())
+        # self.toggleLeftBox.setSizePolicy(sizePolicy)
+        # self.toggleLeftBox.setMinimumSize(QSize(0, 32))
+        # self.toggleLeftBox.setFont(font)
+        # self.toggleLeftBox.setCursor(QCursor(Qt.PointingHandCursor))
+        # self.toggleLeftBox.setLayoutDirection(Qt.LeftToRight)
+        # self.toggleLeftBox.setStyleSheet(u"background-image: url(resource/icons/icon_settings.png);")
+
+        # self.verticalLayout_9.addWidget(self.toggleLeftBox)
+
+        # self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignBottom)
+        # ### <<< left menu (bottom)
 
 
-        self.verticalMenuLayout.addWidget(self.toggleBox)
-
-        self.topMenu = QFrame(self.leftMenuFrame)
-        self.topMenu.setObjectName(u"topMenu")
-        self.topMenu.setFrameShape(QFrame.NoFrame)
-        self.topMenu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.topMenu)
-        self.verticalLayout_8.setSpacing(0)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.btn_home = QPushButton(self.topMenu)
-        self.btn_home.setObjectName(u"btn_home")
-        sizePolicy.setHeightForWidth(self.btn_home.sizePolicy().hasHeightForWidth())
-        self.btn_home.setSizePolicy(sizePolicy)
-        self.btn_home.setMinimumSize(QSize(0, 45))
-        self.btn_home.setFont(font)
-        self.btn_home.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_home.setLayoutDirection(Qt.LeftToRight)
-        self.btn_home.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-home.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_home)
-
-        self.btn_widgets = QPushButton(self.topMenu)
-        self.btn_widgets.setObjectName(u"btn_widgets")
-        sizePolicy.setHeightForWidth(self.btn_widgets.sizePolicy().hasHeightForWidth())
-        self.btn_widgets.setSizePolicy(sizePolicy)
-        self.btn_widgets.setMinimumSize(QSize(0, 45))
-        self.btn_widgets.setFont(font)
-        self.btn_widgets.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_widgets.setLayoutDirection(Qt.LeftToRight)
-        self.btn_widgets.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-gamepad.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_widgets)
-
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_new)
-
-        self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
-        sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy)
-        self.btn_save.setMinimumSize(QSize(0, 45))
-        self.btn_save.setFont(font)
-        self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
-
-        self.verticalLayout_8.addWidget(self.btn_save)
-
-        self.btn_exit = QPushButton(self.topMenu)
-        self.btn_exit.setObjectName(u"btn_exit")
-        sizePolicy.setHeightForWidth(self.btn_exit.sizePolicy().hasHeightForWidth())
-        self.btn_exit.setSizePolicy(sizePolicy)
-        self.btn_exit.setMinimumSize(QSize(0, 45))
-        self.btn_exit.setFont(font)
-        self.btn_exit.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_exit.setLayoutDirection(Qt.LeftToRight)
-        self.btn_exit.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_exit)
+        # self.ui_left_menu.verticalLayout_3.addWidget(self.leftMenuFrame)
 
 
-        self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
-
-        self.bottomMenu = QFrame(self.leftMenuFrame)
-        self.bottomMenu.setObjectName(u"bottomMenu")
-        self.bottomMenu.setFrameShape(QFrame.NoFrame)
-        self.bottomMenu.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_9 = QVBoxLayout(self.bottomMenu)
-        self.verticalLayout_9.setSpacing(0)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.toggleLeftBox = QPushButton(self.bottomMenu)
-        self.toggleLeftBox.setObjectName(u"toggleLeftBox")
-        sizePolicy.setHeightForWidth(self.toggleLeftBox.sizePolicy().hasHeightForWidth())
-        self.toggleLeftBox.setSizePolicy(sizePolicy)
-        self.toggleLeftBox.setMinimumSize(QSize(0, 45))
-        self.toggleLeftBox.setFont(font)
-        self.toggleLeftBox.setCursor(QCursor(Qt.PointingHandCursor))
-        self.toggleLeftBox.setLayoutDirection(Qt.LeftToRight)
-        self.toggleLeftBox.setStyleSheet(u"background-image: url(:/icons/images/icons/icon_settings.png);")
-
-        self.verticalLayout_9.addWidget(self.toggleLeftBox)
-
-
-        self.verticalMenuLayout.addWidget(self.bottomMenu, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_3.addWidget(self.leftMenuFrame)
-
-
-        self.appLayout.addWidget(self.leftMenuBg)
+        self.appLayout.addWidget(self.ui_left_menu.leftMenuBg)
 
         self.extraLeftBox = QFrame(self.bgApp)
         self.extraLeftBox.setObjectName(u"extraLeftBox")
@@ -237,14 +277,15 @@ class Ui_MainWindow(object):
         self.extraLeftBox.setMaximumSize(QSize(0, 16777215))
         self.extraLeftBox.setFrameShape(QFrame.NoFrame)
         self.extraLeftBox.setFrameShadow(QFrame.Raised)
+        
         self.extraColumLayout = QVBoxLayout(self.extraLeftBox)
         self.extraColumLayout.setSpacing(0)
         self.extraColumLayout.setObjectName(u"extraColumLayout")
         self.extraColumLayout.setContentsMargins(0, 0, 0, 0)
         self.extraTopBg = QFrame(self.extraLeftBox)
         self.extraTopBg.setObjectName(u"extraTopBg")
-        self.extraTopBg.setMinimumSize(QSize(0, 50))
-        self.extraTopBg.setMaximumSize(QSize(16777215, 50))
+        self.extraTopBg.setMinimumSize(QSize(0, 32))
+        self.extraTopBg.setMaximumSize(QSize(16777215, 32))
         self.extraTopBg.setFrameShape(QFrame.NoFrame)
         self.extraTopBg.setFrameShadow(QFrame.Raised)
         self.verticalLayout_5 = QVBoxLayout(self.extraTopBg)
@@ -277,7 +318,7 @@ class Ui_MainWindow(object):
         self.extraCloseColumnBtn.setMaximumSize(QSize(28, 28))
         self.extraCloseColumnBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon = QIcon()
-        icon.addFile(u":/icons/images/icons/icon_close.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"resource/icons/icon_close.png", QSize(), QIcon.Normal, QIcon.Off)
         self.extraCloseColumnBtn.setIcon(icon)
         self.extraCloseColumnBtn.setIconSize(QSize(20, 20))
 
@@ -309,11 +350,11 @@ class Ui_MainWindow(object):
         self.btn_share.setObjectName(u"btn_share")
         sizePolicy.setHeightForWidth(self.btn_share.sizePolicy().hasHeightForWidth())
         self.btn_share.setSizePolicy(sizePolicy)
-        self.btn_share.setMinimumSize(QSize(0, 45))
+        self.btn_share.setMinimumSize(QSize(0, 32))
         self.btn_share.setFont(font)
         self.btn_share.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_share.setLayoutDirection(Qt.LeftToRight)
-        self.btn_share.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-share-boxed.png);")
+        self.btn_share.setStyleSheet(u"background-image: url(resource/icons/cil-share-boxed.png);")
 
         self.verticalLayout_11.addWidget(self.btn_share)
 
@@ -321,11 +362,11 @@ class Ui_MainWindow(object):
         self.btn_adjustments.setObjectName(u"btn_adjustments")
         sizePolicy.setHeightForWidth(self.btn_adjustments.sizePolicy().hasHeightForWidth())
         self.btn_adjustments.setSizePolicy(sizePolicy)
-        self.btn_adjustments.setMinimumSize(QSize(0, 45))
+        self.btn_adjustments.setMinimumSize(QSize(0, 32))
         self.btn_adjustments.setFont(font)
         self.btn_adjustments.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_adjustments.setLayoutDirection(Qt.LeftToRight)
-        self.btn_adjustments.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-equalizer.png);")
+        self.btn_adjustments.setStyleSheet(u"background-image: url(resource/icons/cil-equalizer.png);")
 
         self.verticalLayout_11.addWidget(self.btn_adjustments)
 
@@ -333,11 +374,11 @@ class Ui_MainWindow(object):
         self.btn_more.setObjectName(u"btn_more")
         sizePolicy.setHeightForWidth(self.btn_more.sizePolicy().hasHeightForWidth())
         self.btn_more.setSizePolicy(sizePolicy)
-        self.btn_more.setMinimumSize(QSize(0, 45))
+        self.btn_more.setMinimumSize(QSize(0, 32))
         self.btn_more.setFont(font)
         self.btn_more.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_more.setLayoutDirection(Qt.LeftToRight)
-        self.btn_more.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-layers.png);")
+        self.btn_more.setStyleSheet(u"background-image: url(resource/icons/cil-layers.png);")
 
         self.verticalLayout_11.addWidget(self.btn_more)
 
@@ -385,8 +426,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.contentTopBg = QFrame(self.contentBox)
         self.contentTopBg.setObjectName(u"contentTopBg")
-        self.contentTopBg.setMinimumSize(QSize(0, 50))
-        self.contentTopBg.setMaximumSize(QSize(16777215, 50))
+        self.contentTopBg.setMinimumSize(QSize(0, 32))
+        self.contentTopBg.setMaximumSize(QSize(16777215, 32))
         self.contentTopBg.setFrameShape(QFrame.NoFrame)
         self.contentTopBg.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.contentTopBg)
@@ -413,7 +454,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.titleRightInfo.sizePolicy().hasHeightForWidth())
         self.titleRightInfo.setSizePolicy(sizePolicy2)
-        self.titleRightInfo.setMaximumSize(QSize(16777215, 45))
+        self.titleRightInfo.setMaximumSize(QSize(16777215, 32))
         self.titleRightInfo.setFont(font)
         self.titleRightInfo.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -437,7 +478,7 @@ class Ui_MainWindow(object):
         self.settingsTopBtn.setMaximumSize(QSize(28, 28))
         self.settingsTopBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
-        icon1.addFile(u":/icons/images/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"resource/icons/icon_settings.png", QSize(), QIcon.Normal, QIcon.Off)
         self.settingsTopBtn.setIcon(icon1)
         self.settingsTopBtn.setIconSize(QSize(20, 20))
 
@@ -449,7 +490,7 @@ class Ui_MainWindow(object):
         self.minimizeAppBtn.setMaximumSize(QSize(28, 28))
         self.minimizeAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon2 = QIcon()
-        icon2.addFile(u":/icons/images/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"resource/icons/icon_minimize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.minimizeAppBtn.setIcon(icon2)
         self.minimizeAppBtn.setIconSize(QSize(20, 20))
 
@@ -468,7 +509,7 @@ class Ui_MainWindow(object):
         self.maximizeRestoreAppBtn.setFont(font3)
         self.maximizeRestoreAppBtn.setCursor(QCursor(Qt.PointingHandCursor))
         icon3 = QIcon()
-        icon3.addFile(u":/icons/images/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"resource/icons/icon_maximize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.maximizeRestoreAppBtn.setIcon(icon3)
         self.maximizeRestoreAppBtn.setIconSize(QSize(20, 20))
 
@@ -518,12 +559,14 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.pagesContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
+
         self.home = QWidget()
         self.home.setObjectName(u"home")
-        self.home.setStyleSheet(u"background-image: url(:/icons/images/icons/icons8-3d-model-96.png);\n"
-"background-position: center;\n"
-"background-repeat: no-repeat;")
+        self.home.setStyleSheet(u"background-image: url(:/icons/images/icons/cubes-gradient-32.png);\n"
+                                "background-position: center;\n"
+                                "background-repeat: no-repeat;")
         self.stackedWidget.addWidget(self.home)
+
         self.widgets = QWidget()
         self.widgets.setObjectName(u"widgets")
         self.widgets.setStyleSheet(u"b")
@@ -584,12 +627,12 @@ class Ui_MainWindow(object):
 
         self.pushButton = QPushButton(self.frame_content_wid_1)
         self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(150, 30))
+        self.pushButton.setMinimumSize(QSize(150, 32))
         self.pushButton.setFont(font)
         self.pushButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.pushButton.setStyleSheet(u"background-color: rgb(52, 59, 72);")
         icon4 = QIcon()
-        icon4.addFile(u":/icons/images/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"resource/icons/cil-folder-open.png", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon4)
 
         self.gridLayout.addWidget(self.pushButton, 0, 1, 1, 1)
@@ -714,7 +757,7 @@ class Ui_MainWindow(object):
         self.commandLinkButton.setCursor(QCursor(Qt.PointingHandCursor))
         self.commandLinkButton.setStyleSheet(u"")
         icon5 = QIcon()
-        icon5.addFile(u":/icons/images/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u"resource/icons/cil-link.png", QSize(), QIcon.Normal, QIcon.Off)
         self.commandLinkButton.setIcon(icon5)
 
         self.gridLayout_2.addWidget(self.commandLinkButton, 1, 6, 1, 1)
@@ -866,6 +909,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
+
         self.new_page = QWidget()
         self.new_page.setObjectName(u"new_page")
         self.verticalLayout_20 = QVBoxLayout(self.new_page)
@@ -925,7 +969,7 @@ class Ui_MainWindow(object):
         self.btn_message.setFont(font)
         self.btn_message.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_message.setLayoutDirection(Qt.LeftToRight)
-        self.btn_message.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-envelope-open.png);")
+        self.btn_message.setStyleSheet(u"background-image: url(resource/icons/cil-envelope-open.png);")
 
         self.verticalLayout_14.addWidget(self.btn_message)
 
@@ -937,7 +981,7 @@ class Ui_MainWindow(object):
         self.btn_print.setFont(font)
         self.btn_print.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_print.setLayoutDirection(Qt.LeftToRight)
-        self.btn_print.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-print.png);")
+        self.btn_print.setStyleSheet(u"background-image: url(resource/icons/cil-print.png);")
 
         self.verticalLayout_14.addWidget(self.btn_print)
 
@@ -949,7 +993,7 @@ class Ui_MainWindow(object):
         self.btn_logout.setFont(font)
         self.btn_logout.setCursor(QCursor(Qt.PointingHandCursor))
         self.btn_logout.setLayoutDirection(Qt.LeftToRight)
-        self.btn_logout.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-account-logout.png);")
+        self.btn_logout.setStyleSheet(u"background-image: url(resource/icons/cil-account-logout.png);")
 
         self.verticalLayout_14.addWidget(self.btn_logout)
 
@@ -1026,15 +1070,9 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.titleLeftApp.setText(QCoreApplication.translate("MainWindow", u"POCAN", None))
-        self.titleLeftDescription.setText(QCoreApplication.translate("MainWindow", u"POint Cloud ANnotation App", None))
-        self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
-        self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
-        self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
-        self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
+        self.ui_left_menu.retranslateUi()
+
+
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
         self.extraCloseColumnBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Close left box", None))

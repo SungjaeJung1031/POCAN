@@ -52,11 +52,11 @@ Left Menu */
 }
 #topLogo {
 	background-color: rgb(33, 37, 43);
-	background-image: url(:/icons/resource/icons/icons8-3d-model-96.png);
+	border-image: url(resource/icons/cubes-gradient-32.png) 0 0 0 0 stretch stretch;
 	background-position: centered;
 	background-repeat: no-repeat;
 }
-#titleLeftApp { font: 63 12pt "Segoe UI Semibold"; }
+#titleLeftApp { font: 63 12pt "Segoe UI Semibold"; color: rgb(189, 147, 249); }
 #titleLeftDescription { font: 8pt "Segoe UI"; color: rgb(189, 147, 249); }
 
 /* MENUS */
@@ -64,10 +64,10 @@ Left Menu */
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 22px solid transparent;
+	border-left: 7px solid transparent;
 	background-color: transparent;
 	text-align: left;
-	padding-left: 44px;
+	padding-left: 35px;
 }
 #topMenu .QPushButton:hover {
 	background-color: rgb(40, 44, 52);
@@ -80,10 +80,10 @@ Left Menu */
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 20px solid transparent;
+	border-left: 7px solid transparent;
 	background-color:transparent;
 	text-align: left;
-	padding-left: 44px;
+	padding-left: 35px;
 }
 #bottomMenu .QPushButton:hover {
 	background-color: rgb(40, 44, 52);
@@ -101,10 +101,10 @@ Left Menu */
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 20px solid transparent;
+	border-left: 7px solid transparent;
 	background-color: rgb(37, 41, 48);
 	text-align: left;
-	padding-left: 44px;
+	padding-left: 35px;
 	color: rgb(113, 126, 149);
 }
 #toggleButton:hover {
@@ -131,7 +131,7 @@ Extra Tab */
 #extraIcon {
 	background-position: center;
 	background-repeat: no-repeat;
-	background-image: url(:/icons/resource/icons/icon_settings.png);
+	background-image: url(resource/icons/icon_settings.png);
 }
 
 /* Label */
@@ -152,10 +152,10 @@ Extra Tab */
 background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 22px solid transparent;
+	border-left: 7px solid transparent;
 	background-color:transparent;
 	text-align: left;
-	padding-left: 44px;
+	padding-left: 35px;
 }
 #extraTopMenu .QPushButton:hover {
 	background-color: rgb(40, 44, 52);
@@ -193,10 +193,10 @@ Content App */
 	background-position: left center;
     background-repeat: no-repeat;
 	border: none;
-	border-left: 22px solid transparent;
+	border-left: 7px solid transparent;
 	background-color:transparent;
 	text-align: left;
-	padding-left: 44px;
+	padding-left: 35px;
 }
 #contentSettings .QPushButton:hover {
 	background-color: rgb(40, 44, 52);
@@ -380,7 +380,7 @@ QCheckBox::indicator:hover {
 QCheckBox::indicator:checked {
     background: 3px solid rgb(52, 59, 72);
 	border: 3px solid rgb(52, 59, 72);	
-	background-image: url(:/icons/resource/icons/cil-check-alt.png);
+	background-image: url(resource/icons/cil-check-alt.png);
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -421,7 +421,7 @@ QComboBox::drop-down {
 	border-left-style: solid;
 	border-top-right-radius: 3px;
 	border-bottom-right-radius: 3px;	
-	background-image: url(:/icons/resource/icons/cil-arrow-bottom.png);
+	background-image: url(resource/icons/cil-arrow-bottom.png);
 	background-position: center;
 	background-repeat: no-reperat;
  }

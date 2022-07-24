@@ -2,3 +2,6 @@
 __pycache__/
 *.py[cod]
 setup.py
+
+
+.DS_Store

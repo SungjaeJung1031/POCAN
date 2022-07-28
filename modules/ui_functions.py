@@ -91,8 +91,8 @@ class UIFunctions(MainWindow):
                 # SELECT BTN
                 self.ui.ui_left_menu.btn_setting.setStyleSheet(style + color)
                 if widthRightBox != 0:
-                    style = self.ui.settingsTopBtn.styleSheet()
-                    self.ui.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
+                    style = self.ui.ui_cotent.settingsTopBtn.styleSheet()
+                    self.ui.ui_cotent.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
@@ -112,20 +112,20 @@ class UIFunctions(MainWindow):
             standard = 0
 
             # GET BTN STYLE
-            style = self.ui.settingsTopBtn.styleSheet()
+            style = self.ui.ui_content.settingsTopBtn.styleSheet()
 
             # SET MAX WIDTH
             if width == 0:
                 widthExtended = maxExtend
                 # SELECT BTN
-                self.ui.settingsTopBtn.setStyleSheet(style + color)
+                self.ui.ui_content.settingsTopBtn.setStyleSheet(style + color)
                 if widthLeftBox != 0:
                     style = self.ui.toggleLeftBox.styleSheet()
                     self.ui.toggleLeftBox.setStyleSheet(style.replace(Settings.BTN_LEFT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
-                self.ui.settingsTopBtn.setStyleSheet(style.replace(color, ''))
+                self.ui.ui_content.settingsTopBtn.setStyleSheet(style.replace(color, ''))
 
             UIFunctions.start_box_animation(self, widthLeftBox, width, "right")
 
@@ -202,7 +202,7 @@ class UIFunctions(MainWindow):
             # IF DOUBLE CLICK CHANGE STATUS
             if event.type() == QEvent.MouseButtonDblClick:
                 QTimer.singleShot(250, lambda: UIFunctions.maximize_restore(self))
-        self.ui.titleRightInfo.mouseDoubleClickEvent = dobleClickMaximizeRestore
+        self.ui.ui_content.titleRightInfo.mouseDoubleClickEvent = dobleClickMaximizeRestore
 
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
             #STANDARD TITLE BAR
@@ -219,7 +219,7 @@ class UIFunctions(MainWindow):
                     self.move(self.pos() + event.globalPos() - self.dragPos)
                     self.dragPos = event.globalPos()
                     event.accept()
-            self.ui.titleRightInfo.mouseMoveEvent = moveWindow
+            self.ui.ui_content.titleRightInfo.mouseMoveEvent = moveWindow
 
             # CUSTOM GRIPS
             self.left_grip = CustomGrip(self, Qt.LeftEdge, True)
@@ -229,10 +229,10 @@ class UIFunctions(MainWindow):
 
         else:
             self.ui.appMargins.setContentsMargins(0, 0, 0, 0)
-            self.ui.minimizeAppBtn.hide()
-            self.ui.maximizeRestoreAppBtn.hide()
-            self.ui.closeAppBtn.hide()
-            self.ui.frame_size_grip.hide()
+            self.ui.ui_content.minimizeAppBtn.hide()
+            self.ui.ui_content.maximizeRestoreAppBtn.hide()
+            self.ui.ui_content.closeAppBtn.hide()
+            self.ui.ui_content.frame_size_grip.hide()
 
         # DROP SHADOW
         self.shadow = QGraphicsDropShadowEffect(self)
@@ -243,17 +243,17 @@ class UIFunctions(MainWindow):
         self.ui.bgApp.setGraphicsEffect(self.shadow)
 
         # RESIZE WINDOW
-        self.sizegrip = QSizeGrip(self.ui.frame_size_grip)
+        self.sizegrip = QSizeGrip(self.ui.ui_content.frame_size_grip)
         self.sizegrip.setStyleSheet("width: 20px; height: 20px; margin 0px; padding: 0px;")
 
         # MINIMIZE
-        self.ui.minimizeAppBtn.clicked.connect(lambda: self.showMinimized())
+        self.ui.ui_content.minimizeAppBtn.clicked.connect(lambda: self.showMinimized())
 
         # MAXIMIZE/RESTORE
-        self.ui.maximizeRestoreAppBtn.clicked.connect(lambda: UIFunctions.maximize_restore(self))
+        self.ui.ui_content.maximizeRestoreAppBtn.clicked.connect(lambda: UIFunctions.maximize_restore(self))
 
         # CLOSE APPLICATION
-        self.ui.closeAppBtn.clicked.connect(lambda: self.close())
+        self.ui.ui_content.closeAppBtn.clicked.connect(lambda: self.close())
 
     def resize_grips(self):
         if Settings.ENABLE_CUSTOM_TITLE_BAR:
